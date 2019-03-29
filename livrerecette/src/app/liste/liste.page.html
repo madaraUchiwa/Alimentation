@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref='/home'></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ categorie.libelleType }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+    <br>
+     <ion-list>
+       <ion-item *ngFor="let repas of listeRepas" (click)="recetteRepas(repas.idRepas)">
+         <ion-thumbnail item-start>
+           <img src="http://localhost:3000/static/images/{{repas.imageRepas}}" class="img-circle">
+         </ion-thumbnail>
+         <h2>{{ repas.libelleRepas }}</h2>
+       </ion-item>
+     </ion-list>
+  </div>
+</ion-content>

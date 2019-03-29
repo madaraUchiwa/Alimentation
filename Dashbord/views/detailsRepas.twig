@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr-fr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="/static/css/style.css">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <title>dashbord cuisine App</title>
+</head>
+<body>
+{% include 'partials/_nav.twig' %}
+<div class="header-double-line-home list-view-heading">
+  <h2>Details la recette : {{ repas.libelleRepas }}</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+      <div id="contact-form">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="/static/images/{{ repas.imageRepas }}" style="width: 87%;border-radius: 15px;">
+          </div>
+          <div class="col-md-8" style="margin-top: 37px;">
+            <div>
+              <p>Nom recette : {{ repas.libelleRepas }}</p>
+            </div>
+            <div>
+              <p> type de recette : {{ repas.libelleType }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row">
+          <div class="col-md-6">
+            <h3>les ingrédients : </h3>
+            <p>{{ repas.ingredient }}</p>
+          </div>
+          <div class="col-md-6">
+            <h3> les etapes de la préparation :</h3>
+            <p>{{ repas.recette }}</p>
+          </div>
+        </div>
+          <div class="col-md-8 row">
+            <button class="btn btn-primary pull-left" ><i class="fa fa-chevron-circle-left"></i> Retour</button>  <button onclick="window.location.href='/dashbord/repas/edite/{{repas.idTypeRepas}}'"  class="btn btn-warning" style="margin-left: 30px;"><i class="fa fa-pencil"></i> Modifier</button><button class="btn btn-danger pull-right" onclick="window.location.href='/dashbord/repas/delete/{{repas.idTypeRepas}}'" ><i class="fa fa-remove"></i> Supprimer</button>
+          </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+</body>
+</html>

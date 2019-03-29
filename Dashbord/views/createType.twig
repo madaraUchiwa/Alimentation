@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr-fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="assets/css/style.css">-->
+  <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="/static/css/style.css">
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+    <title>dashbord cuisine App</title>
+  </head>
+  <body>
+  {% include 'partials/_nav.twig' %}
+    <div class="header-double-line-home list-view-heading">
+      <h2>create de type de repas</h2>
+    </div>
+      <div class="container">
+      <div class="row">
+          <div class="col-lg-10 col-lg-offset-1">
+              <form id="contact-form" action="/dashbord/typerepas/create/" method="post" enctype="multipart/form-data">
+                  <div class="row">
+                      <div class="col-md-6">
+                          <label for="nom">Libelle du type de repas <sapn style="color: red" >*</sapn></label>
+                          <input type="text" class="form-control" id="libelleType" name="libelleType" placeholder="Nom" value="">
+                          <p class="comments"></p>
+                      </div>
+                      <div class="col-md-6">
+                          <label for="iconType">le nom de l'icon du menu du type de repas</label>
+                          <input type="text" class="form-control" id="iconType" name="iconType"  placeholder="Votre prenom" value="">
+                          <p class="comments"></p>
+                      </div>
+                      <div class="col-md-12">
+                          <label for="imageType">l'image du type de repas <sapn style="color: red" >*</sapn></label>
+                          <input type="file" class="form-control" id="imageType" name="imageType"  placeholder="Votre Email" value="">
+                          <p class="comments"></p>
+                      </div>
+                      <div class="col-md-12">
+                          <p class="blue"><strong>* Ces informations sont requises</strong></p>
+                      </div>
+                      <div class="col-md-12">
+                          <input type="submit" class="button1" value="Envoyer">
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+  </body>
+</html>

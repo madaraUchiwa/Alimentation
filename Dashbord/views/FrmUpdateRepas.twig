@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr-fr" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="/static/css/style.css">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <title>dashbord cuisine App</title>
+</head>
+<body>
+{% include 'partials/_nav.twig' %}
+<div class="header-double-line-home list-view-heading">
+    <h2>Modifier la recette : {{ repas.libelleRepas }}</h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-lg-offset-1">
+            <form id="contact-form" action="/dashbord/repas/update/{{ repas.idRepas }}" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="/static/images/{{ repas.imageRepas }}" style="width: 87%;border-radius: 15px;">
+                    </div>
+                    <div class="col-md-8" style="margin-top: 37px;">
+                        <div>
+                            <label for="libelleRepas">Libelle du repas <sapn style="color: red" >*</sapn></label>
+                            <input type="text" class="form-control" id="libelleRepas" name="libelleRepas" placeholder="Nom" value="{{ repas.libelleRepas }}">
+                            <p class="comments"></p>
+                        </div>
+                        <div>
+                            <label for="iconType">le type de recette <sapn style="color: red" >*</sapn></label>
+                            <select class="form-control" name="typeRepas">
+                                <option>selectionner le type de recette</option>
+                                {% for typeRecette in typeRs %}
+                                    <option {{ ( repas.idTypeRepas == typeRecette.idTypeRepas)? 'selected="selected"':'' }} value="{{ typeRecette.idTypeRepas }}">{{ typeRecette.libelleType }}</option>
+                                {% endfor %}
+                            </select>
+                            <p class="comments"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="imageType">l'image du type de repas <sapn style="color: red" >*</sapn></label>
+                        <input type="file" class="form-control" id="imageType" name="imageType"  placeholder="Votre Email" value="">
+                        <p class="comments"></p>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="ingredient">ingrédient<sapn style="color: red" >*</sapn></label>
+                        <textarea rows="5" class="form-control" id="ingredient" name="ingredient" placeholder="ingredient">{{ repas.ingredient }}</textarea>
+                        <p class="comments"></p>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="etape">les etapes <sapn style="color: red" >*</sapn></label>
+                        <textarea rows="5" class="form-control" id="etape" name="etape" placeholder="etapes">{{ repas.recette }}</textarea>
+                        <p class="comments"></p>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="blue"><strong>* Ces informations sont requises</strong></p>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="submit" class="button1" value="Envoyer">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref='/liste/{{repas.idTypeRepas}}'></ion-back-button>
+    </ion-buttons>
+    <ion-buttons id="accueil" (click)="accueil()">
+      <ion-icon style="color: #5bc0de; font-size: 20px" icon="home">
+      </ion-icon>
+    </ion-buttons>
+    <ion-title>details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="http://localhost:3000/static/images/{{repas.imageRepas}}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ repas.libelleRepas}}
+      </ion-card-title>
+    </ion-card-content>
+    <ion-item>
+      <ion-icon name="leaf" style="color: #0ec254"></ion-icon>
+      {{ (listeIngred.length >1)? 'les ingrédients ':'l\'ingrédient ' }}:
+      <ion-badge item-end>{{ listeIngred.length }}</ion-badge>
+    </ion-item>
+    <br>
+      <ul>
+          <li *ngFor="let ingr of listeIngred"> {{ ingr }}.</li>
+      </ul>
+    <ion-item>
+      <ion-icon name="list-box" style="color: #24d6ea"></ion-icon>
+      Preparation en :
+      <ion-badge item-end>{{ recetEtap.length}}</ion-badge>
+      {{ (recetEtap.length >1)? ' étapes':'étape'}}
+    </ion-item>
+    <br>
+    <ol>
+      <li *ngFor="let etap of recetEtap"><p>{{ etap }}.</p></li>
+    </ol>
+    <p style="float: right">Bonne degustation 😋😋😋😋😋</p>
+  </ion-card>
+</ion-content>

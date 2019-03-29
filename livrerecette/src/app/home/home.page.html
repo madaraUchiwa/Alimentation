@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Accueil
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+     <div class="container">
+       <div class="row">
+         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+           <ol class="carousel-indicators">
+             <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+           </ol>
+           <div class="carousel-inner">
+             <div class="item active">
+               <img src="http://localhost:3000/static/images/12.jpg"
+                 alt="First slide">
+               <div class="carousel-caption">
+                 <h1>Cuisiner comme un chef</h1>
+               </div>
+             </div>
+             <div class="item">
+               <img src="http://localhost:3000/static/images/11.jpg" alt="Second slide">
+               <div class="carousel-caption">
+                 <h1>Cusiner n'a jamais été aussi facile!</h1>
+               </div>
+             </div>
+             <div class="item">
+               <img src="http://localhost:3000/static/images/10.jpg" alt="Third slide">
+               <div class="carousel-caption">
+                 <h1>Devener un cordons bleu!</h1>
+               </div>
+             </div>
+           </div>
+           <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+             <span class="glyphicon glyphicon-chevron-left"></span>
+           </a>
+           <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+             <span class="glyphicon glyphicon-chevron-right"></span>
+           </a>
+         </div>
+       </div>
+     </div>
+    <div class="card-background-page">
+      <div class="header-double-line-home list-view-heading">
+        <h2>Nos types Recettes</h2>
+      </div>
+      <div class="container">
+        <ion-card *ngFor="let c of cat" (click)="list(c.idTypeRepas)">
+            <img src="http://localhost:3000/static/images/{{c.imageType}}"/>
+            <div class="card-title">{{  c.libelleType }}</div>
+            <div class="card-subtitle"></div>
+        </ion-card>
+      </div>
+      <div class="header-double-line-home list-view-heading">
+        <h2>Nos Repas</h2>
+      </div>
+      <!--<div padding >
+        <ion-segment [(ngModel)]="{{ rep.libelleRepas }}">
+          <ion-segment-button *ngFor="let rep of repas" value="{{ rep.idRepas }}">
+            {{ rep.libelleRepas   }}
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+      <div [ngSwitch]="pet">
+        <ion-list *ngSwitchCase="'puppies'">
+          <ion-item>
+            <ion-thumbnail item-start>
+              <img src="img/thumbnail-puppy-1.jpg">
+            </ion-thumbnail>
+            <h2>Ruby</h2>
+          </ion-item>
+          ...
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'kittens'">
+          <ion-item>
+            <ion-thumbnail item-start>
+              <img src="img/thumbnail-kitten-1.jpg">
+            </ion-thumbnail>
+            <h2>Luna</h2>
+          </ion-item>
+          ...
+        </ion-list>
+        <ion-list *ngSwitchCase="'kittens'">
+          <ion-item>
+            <ion-thumbnail item-start>
+              <img src="img/thumbnail-kitten-1.jpg">
+            </ion-thumbnail>
+            <h2>Luna</h2>
+          </ion-item>
+          ...
+        </ion-list>
+      </div>-->
+    
+    </div>
+</ion-content>
